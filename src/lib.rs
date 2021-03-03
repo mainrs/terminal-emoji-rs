@@ -42,5 +42,5 @@ fn is_emoji_supported() -> bool {
 
 #[cfg(not(target_os = "macos"))]
 fn is_emoji_supported() -> bool {
-    true
+    *IS_LANG_UTF8
 }
