@@ -4,6 +4,15 @@
 
 > **Note:** The code is taken from `console` and put into its own crate.
 
+## Usage
+
+```rust
+use terminal_emoji::Emoji;
+
+let emoji = Emoji::new("ℹ", "i");
+println!("{}", emoji);
+```
+
 ## License
 
 Licensed under either of
