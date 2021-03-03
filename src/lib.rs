@@ -15,7 +15,7 @@ lazy_static::lazy_static! {
 pub struct Emoji<'a, 'b>(pub &'a str, pub &'b str);
 
 impl<'a, 'b> Emoji<'a, 'b> {
-    pub fn new(emoji: &'a str, fallback: &'b str) -> Self {
+    pub const fn new(emoji: &'a str, fallback: &'b str) -> Self {
         Self(emoji, fallback)
     }
 }
