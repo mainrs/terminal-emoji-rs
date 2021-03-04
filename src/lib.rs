@@ -58,7 +58,7 @@ fn should_display_emoji() -> bool {
 // user uses that specific app.
 #[cfg(windows)]
 fn is_emoji_supported() -> bool {
-    std::env::var("WT_SESSION").is_some()
+    std::env::var("WT_SESSION").is_ok()
 }
 
 // macOS by default has emoji support.
