@@ -8,8 +8,10 @@
 ```rust
 use terminal_emoji::Emoji;
 
-let emoji = Emoji::new("ℹ", "i");
-println!("{}", emoji);
+fn main() {
+    let crab = Emoji::new("🦀", "C");
+    println!("{}", crab);
+}
 ```
 
 ## License
