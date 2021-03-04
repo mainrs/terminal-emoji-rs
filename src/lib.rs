@@ -24,6 +24,7 @@ lazy_static::lazy_static! {
 ///     - Unix systems have support if the active language supports them.
 ///     - Windows machines running the new Terminal app support emojis.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+#[cfg_attr(feature = "serde", derive(serde::Deserialize, serde::Serialize))]
 pub struct Emoji<'a, 'b>(pub &'a str, pub &'b str);
 
 impl<'a, 'b> Emoji<'a, 'b> {
