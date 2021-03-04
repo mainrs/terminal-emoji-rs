@@ -10,3 +10,4 @@ edition = "2018"
 [dependencies]
 atty = "0.2.14"
 lazy_static = "1.4.0"
+serde = { version = "1.0.123", optional = true, features = ["derive"] }
