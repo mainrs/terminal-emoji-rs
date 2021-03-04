@@ -69,7 +69,7 @@ fn is_emoji_supported() -> bool {
 
 // On unix systems the enabled language decides whether emojis are supported or
 // not.
-#[cfg(not(target_os = "macos"))]
+#[cfg(all(unix, not(target_os = "macos")))]
 fn is_emoji_supported() -> bool {
     *IS_LANG_UTF8
 }
