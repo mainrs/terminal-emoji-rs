@@ -11,9 +11,27 @@ lazy_static::lazy_static! {
     };
 }
 
+/// An emoji with safety fallback.
+///
+/// The struct wraps an emoji and only renders it on platforms that actually
+/// support it. On non-supported platforms the fallback value is being rendered.
+///
+/// Support is determined by two factors:
+///
+/// 1) The processes stdout has to be a tty.
+/// 2) Platform dependent:
+///     - macOS has emoji support by default
+///     - Unix systems have support if the active language supports them.
+///     - Windows machines running the new Terminal app support emojis.
 pub struct Emoji<'a, 'b>(pub &'a str, pub &'b str);
 
 impl<'a, 'b> Emoji<'a, 'b> {
+    /// Create a new emoji.
+    ///
+    /// # Arguments
+    ///
+    /// - `emoji`: The unicode emoji to display.
+    /// - `fallback`: The fallback value to use on non-supported platforms.
     pub const fn new(emoji: &'a str, fallback: &'b str) -> Self {
         Self(emoji, fallback)
     }
