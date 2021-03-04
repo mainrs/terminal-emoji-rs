@@ -3,7 +3,7 @@ name = "terminal-emoji"
 description = "A library for safely displaying emoji inside of terminals"
 license = "Apache-2.0 OR MIT"
 repository = "https://github.com/SirWindfield/terminal-emoji-rs"
-version = "0.2.3"
+version = "0.2.4"
 authors = ["SirWindfield <SirWindfield@users.noreply.github.com>"]
 edition = "2018"
 
