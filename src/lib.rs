@@ -23,6 +23,7 @@ lazy_static::lazy_static! {
 ///     - macOS has emoji support by default
 ///     - Unix systems have support if the active language supports them.
 ///     - Windows machines running the new Terminal app support emojis.
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct Emoji<'a, 'b>(pub &'a str, pub &'b str);
 
 impl<'a, 'b> Emoji<'a, 'b> {
