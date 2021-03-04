@@ -47,6 +47,12 @@ impl fmt::Display for Emoji<'_, '_> {
     }
 }
 
+impl<'a, 'b> From<(&'a str, &'b str)> for Emoji<'a, 'b> {
+    fn from(v: (&'a str, &'b str)) -> Self {
+        Emoji(v.0, v.1)
+    }
+}
+
 // Emojis should only get displayed if the current terminal is a tty and the
 // platform does support emojis.
 fn should_display_emoji() -> bool {
