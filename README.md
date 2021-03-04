@@ -1,7 +1,6 @@
 # terminal-emoji
 
 > A Rust library for safely displaying emojis inside terminals.
-
 > **Note:** The idea is taken from `console` and adapted to be more lightweight.
 
 ## Usage
