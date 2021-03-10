@@ -25,21 +25,21 @@ lazy_static::lazy_static! {
 ///     - Windows machines running the new Terminal app support emojis.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 #[cfg_attr(feature = "serde", derive(serde::Deserialize, serde::Serialize))]
-pub struct Emoji<'a, 'b>(pub &'a str, pub &'b str);
+pub struct Emoji<'a>(pub &'a str, pub &'a str);
 
-impl<'a, 'b> Emoji<'a, 'b> {
+impl<'a> Emoji<'a> {
     /// Create a new emoji.
     ///
     /// # Arguments
     ///
     /// - `emoji`: The unicode emoji to display.
     /// - `fallback`: The fallback value to use on non-supported platforms.
-    pub const fn new(emoji: &'a str, fallback: &'b str) -> Self {
+    pub const fn new(emoji: &'a str, fallback: &'a str) -> Self {
         Self(emoji, fallback)
     }
 }
 
-impl fmt::Display for Emoji<'_, '_> {
+impl fmt::Display for Emoji<'_> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         if should_display_emoji() {
             write!(f, "{}", self.0)
@@ -49,8 +49,8 @@ impl fmt::Display for Emoji<'_, '_> {
     }
 }
 
-impl<'a, 'b> From<(&'a str, &'b str)> for Emoji<'a, 'b> {
-    fn from(v: (&'a str, &'b str)) -> Self {
+impl<'a> From<(&'a str, &'a str)> for Emoji<'a> {
+    fn from(v: (&'a str, &'a str)) -> Self {
         Emoji(v.0, v.1)
     }
 }
