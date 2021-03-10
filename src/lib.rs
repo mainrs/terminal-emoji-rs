@@ -1,7 +1,7 @@
 use atty::Stream;
 use std::fmt;
 
-#[cfg(not(target_os = "macos"))]
+#[cfg(all(unix, not(target_os = "macos")))]
 lazy_static::lazy_static! {
     static ref IS_LANG_UTF8: bool = {
         match std::env::var("LANG") {
