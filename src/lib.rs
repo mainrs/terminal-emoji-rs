@@ -58,26 +58,26 @@ impl<'a, 'b> From<(&'a str, &'b str)> for Emoji<'a, 'b> {
 // Emojis should only get displayed if the current terminal is a tty and the
 // platform does support emojis.
 fn should_display_emoji() -> bool {
-    atty::is(Stream::Stdout) && is_emoji_supported()
+    atty::is(Stream::Stdout) && platform_supports_emoji()
 }
 
 // The new Windows Terminal does support emojis. Currently, the terminal will
 // set the environment variable `WT_SESSION`. This can be used to check if the
 // user uses that specific app.
 #[cfg(windows)]
-fn is_emoji_supported() -> bool {
+pub fn platform_supports_emoji() -> bool {
     std::env::var("WT_SESSION").is_ok()
 }
 
 // macOS by default has emoji support.
 #[cfg(target_os = "macos")]
-fn is_emoji_supported() -> bool {
+pub fn platform_supports_emoji() -> bool {
     true
 }
 
 // On unix systems the enabled language decides whether emojis are supported or
 // not.
 #[cfg(all(unix, not(target_os = "macos")))]
-fn is_emoji_supported() -> bool {
+pub fn platform_supports_emoji() -> bool {
     *IS_LANG_UTF8
 }
