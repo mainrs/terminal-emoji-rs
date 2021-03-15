@@ -9,4 +9,4 @@ edition = "2018"
 
 [dependencies]
 serde = { version = "1.0.123", optional = true, features = ["derive"] }
-terminal-supports-emoji = "0.1.0"
+terminal-supports-emoji = "0.1.3"
